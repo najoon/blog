@@ -1,4 +1,4 @@
-package com.tandu.blog;
+package com.tandu.blog.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

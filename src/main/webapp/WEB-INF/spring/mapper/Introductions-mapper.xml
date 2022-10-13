@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tandu.blog.persistance.IntroductionsDao">
+
+	<select id="selectAll">
+		SELECT * FROM tbl_introductions
+	</select>
+	<select id="findById">
+		SELECT * FROM tbl_introductions WHERE u_seq = #{u_seq}
+	</select>
+	<insert id="insert">
+		INSERT INTO tbl_users(
+		u_introductions
+		) VALUES(
+		#{u_introductions}
+		)
+	</insert>
+	<update id="update">
+		UPDATE tbl_introductions
+		SET u_introductions = #{u_introductions}
+		WHERE u_seq = #{u_seq}
+	</update>
+	<delete id="delete">
+		DELETE FROM tbl_introductions WHERE u_seq = #{u_seq}
+	</delete>
+
+	<select id="create_introductions_table">
+		CREATE TABLE IF NOT EXISTS tbl_introductions(
+		u_seq BIGINT PRIMARY KEY AUTO_INCREMENT,
+		u_introductions VARCHAR(1000) NOT NULL
+		)
+	</select>
+
+
+</mapper> 
